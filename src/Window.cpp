@@ -16,7 +16,7 @@ int Window::initWindow(const char* title)
 {
 	if (!glfwInit()) {
 
-		printf("GLFW initialization failed!");
+		printf("GLFW initialization failed!\n");
 		glfwTerminate();
 		return 1;
 	}
@@ -50,7 +50,7 @@ int Window::initWindow(const char* title)
 
 	m_window = glfwCreateWindow(m_width, m_height, title, nullptr, nullptr);
 	if (!m_window) {
-		printf("GLFW Window creation failed!");
+		printf("GLFW Window creation failed!\n");
 		glfwTerminate();
 		return 2;
 	}
@@ -63,14 +63,14 @@ int Window::initWindow(const char* title)
 	glewExperimental = GL_TRUE;
 
 	if (glewInit() != GLEW_OK) {
-		printf("GLEW initialization failed!");
+		printf("GLEW initialization failed!\n");
 		glfwDestroyWindow(m_window);
 		glfwTerminate();
 		return 3;
 	}
 
 	glViewport(0, 0, m_bufferW, m_bufferH);
-	printf("GLFW and GLEW successfully initialized");
+	printf("GLFW and GLEW successfully initialized\n");
 
 	glEnable(GL_DEPTH_TEST);
 	return 0;

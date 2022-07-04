@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "Input.h"
 
 class Model
 {
@@ -9,16 +10,11 @@ public:
 	~Model();
 
 	void Trasnform(glm::vec3 xyz);
-	void Rotate(float angle, glm::vec3 ax);
-	void Scale(float scaler);
 
-	glm::mat4 GetProjection();
-	void SetProjection(float fovy, float aspect, float near, float far);
 	void DrawModel();
 	void DrawProperties();
 	void Render();
 
 private:
-	glm::mat4 m_projection{ 1.0f };
 	Entity* m_properties{ nullptr };
 };

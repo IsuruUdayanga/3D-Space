@@ -19,8 +19,8 @@ public:
 		if (shaderID != NULL)
 		{
 			glDeleteProgram(shaderID);
-			uniformModel = NULL;
 			uniformProjection = NULL;
+			uniformModel = NULL;
 		}
 	}
 
@@ -134,7 +134,7 @@ private:
 		}
 
 		uniformModel = glGetUniformLocation(shaderID, "model");
-		uniformProjection = glGetUniformLocation(shaderID, "projection");
+		uniformProjection = glGetUniformLocation(shaderID, "camMatrix");
 	}
 
 private:

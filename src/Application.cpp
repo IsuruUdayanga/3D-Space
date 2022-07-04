@@ -3,6 +3,8 @@
 Application::Application(const char* title)
 {
     m_window = new Window(title);
+    Input::setTargetWindow(m_window);
+
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -17,6 +19,9 @@ Application::Application(const char* title)
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
     //ImGui::StyleColorsClassic();
+
+    ImGui::CaptureKeyboardFromApp(true);
+    ImGui::CaptureMouseFromApp(true);
 
     auto& colors = ImGui::GetStyle().Colors;
     colors[ImGuiCol_WindowBg] = ImVec4{ 0.1f, 0.1f, 0.1f, 1.0f };
@@ -108,12 +113,12 @@ void Application::Run()
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     unsigned int indices[] = {
-    0, 1, 2,
-    1, 2, 3,
-    0, 1, 4,
-    0, 2, 4,
-    1, 3, 4,
-    2, 3, 4
+        0, 1, 2,
+        1, 2, 3,
+        0, 1, 4,
+        0, 2, 4,
+        1, 3, 4,
+        2, 3, 4
     };
 
     float vertices[] = {
@@ -128,7 +133,6 @@ void Application::Run()
     std::string fragmentShader = "res\\Shaders\\fragment.vs";
 
     m_model = new Model(vertices, indices, (unsigned int)(sizeof(vertices) / sizeof(float)), (unsigned int)(sizeof(indices) / sizeof(unsigned int)), vertexShader.c_str(), fragmentShader.c_str(), m_window->getWidth(), m_window->getHeight());
-    m_model->SetProjection(glm::radians(45.0f), (GLfloat)m_window->getBufferWidth() / m_window->getBufferHeight(), 0.1f, 100.0f);
 
     while (!m_window->isRunning()) {
 

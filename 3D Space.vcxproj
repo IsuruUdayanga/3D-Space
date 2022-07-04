@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)include\Components;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;$(SolutionDir)include\Components;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,6 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)include\Components;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;$(SolutionDir)include\Components;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,17 +159,20 @@
     <ClCompile Include="lib\imGui\imgui_widgets.cpp" />
     <ClCompile Include="src\3D Space.cpp" />
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\3D Space.h" />
     <ClInclude Include="include\Application.h" />
+    <ClInclude Include="include\Components\Camera.h" />
     <ClInclude Include="include\Components\Component.h" />
     <ClInclude Include="include\Components\Mesh.h" />
     <ClInclude Include="include\Components\Shader.h" />
     <ClInclude Include="include\Components\Transform.h" />
     <ClInclude Include="include\ECS.h" />
+    <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Model.h" />
     <ClInclude Include="include\Window.h" />
     <ClInclude Include="lib\GLEW\include\eglew.h" />

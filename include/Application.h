@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #include "Model.h"
+#include "Input.h"
 
 class Application
 {

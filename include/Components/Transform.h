@@ -72,7 +72,7 @@ public:
 	}
 
 private:
-	glm::vec3 m_position{ -0.500f, -0.320f, -4.6f };
+	glm::vec3 m_position{ 0.0f, 0.0f, 0.0f };
 	float m_angle{ 0.0f };
 	glm::vec3 m_rotationAxis{ 0.0f, 0.0f, 0.0f };
 	float m_scaler{ 0.8f };

@@ -24,6 +24,8 @@
 #include <glm.hpp>
 #include <matrix_transform.hpp>
 #include <type_ptr.hpp>
+#include <rotate_vector.hpp>
+#include <vector_angle.hpp>
 
 //ImGUI
 #include <imgui.h>

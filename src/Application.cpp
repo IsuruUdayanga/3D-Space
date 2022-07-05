@@ -136,6 +136,7 @@ void Application::Run()
 
     while (!m_window->isRunning()) {
 
+        Input::DisableMouse();
         m_window->pollEvents();
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

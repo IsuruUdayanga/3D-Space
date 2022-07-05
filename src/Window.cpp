@@ -58,7 +58,7 @@ int Window::initWindow(const char* title)
 	glfwGetFramebufferSize(m_window, &m_bufferW, &m_bufferH);
 	glfwMakeContextCurrent(m_window);
 	glfwSwapInterval(1);
-	//glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	
 
 	glewExperimental = GL_TRUE;
 

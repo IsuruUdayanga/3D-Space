@@ -3,6 +3,8 @@
 #include "ECS.h"
 #include "Window.h"
 
+//https://github.com/VictorGordan/opengl-tutorials/tree/main/YoutubeOpenGL%208%20-%20Camera
+
 class Camera : public Component
 {
 public:
@@ -105,7 +107,7 @@ private:
 	int width;
 	int height;
 
-	// Adjust the speed of the camera and it's sensitivity when looking around
+	// Adjust the speed of the camera
 	float speed = 0.1f;
 
 	glm::mat4 m_projection;

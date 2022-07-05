@@ -17,4 +17,5 @@ public:
 private:
 	Window* m_window{ nullptr };
 	Model* m_model{ nullptr };
+	bool m_disableMouse;
 };

@@ -9,7 +9,6 @@ Model::Model(float* vertices, unsigned int* indices, unsigned int verticesCount,
 	m_properties->AddComponent<Shader>(vetx_shdr, frgm_shdr);
 	m_properties->AddComponent<Camera>(width, height, glm::vec3(0.0f, 0.1f, 2.5f));
 	m_properties->AddComponent<Texture>(texture);
-	m_properties->GetComponent<Texture>().LoadTexture();
 
 	Input::setControlEntity(m_properties);
 }

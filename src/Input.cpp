@@ -3,7 +3,7 @@
 Window* Input::m_window = nullptr;
 float Input::m_xChange = 0.0f;
 float Input::m_yChange = 0.0f;
-float Input::m_sensitivity = 0.5f;
+float Input::m_sensitivity = 30.0f;
 Entity* Input::m_entity = nullptr;
 bool Input::m_disableMouse = false;
 
@@ -59,6 +59,6 @@ void Input::mouseCallback(GLFWwindow* window, double xpos, double ypos)
 
 	if (m_disableMouse)
 	{
-		m_entity->GetComponent<Camera>().MouseInput(m_xChange, m_yChange);
+		m_entity->GetComponent<Camera>().MouseInput(m_xChange, m_yChange, m_window);
 	}
 }

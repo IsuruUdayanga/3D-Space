@@ -131,11 +131,22 @@ void Application::Run()
     std::string fragmentShader = "res\\Shaders\\fragment.vs";
     std::string texture = "res\\Textures\\BrickRound.jpg";
 
-    m_model = new Model(vertices, indices, (unsigned int)(sizeof(vertices)/sizeof(float)), (unsigned int)(sizeof(indices) / sizeof(unsigned int)), vertexShader.c_str(), fragmentShader.c_str(), m_window->getWidth(), m_window->getHeight(), texture.c_str());
+    m_model = new Model(
+
+        vertices, 
+        indices, 
+        (unsigned int)(sizeof(vertices)/sizeof(float)), 
+        (unsigned int)(sizeof(indices)/sizeof(unsigned int)), 
+        vertexShader.c_str(), 
+        fragmentShader.c_str(), 
+        m_window->getWidth(), 
+        m_window->getHeight(), 
+        texture.c_str()
+
+    );
 
     while (!m_window->isRunning()) {
 
-        Input::DisableMouse();
         m_window->pollEvents();
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -165,6 +176,7 @@ void Application::Run()
             glfwMakeContextCurrent(backup_current_context);
         }
 
+        Input::DisableMouse();
         m_window->swapBuffers();
     }
 }

@@ -11,6 +11,7 @@ public:
 	Texture(const char* texture_location)
 	{
 		m_textureLocation = texture_location;
+		LoadTexture();
 	}
 	virtual ~Texture()
 	{
@@ -38,6 +39,7 @@ public:
 		glBindTexture(GL_TEXTURE_2D, m_textureID);
 	}
 
+private:
 	void LoadTexture()
 	{
 		unsigned char* textureData = SOIL_load_image(m_textureLocation, &m_width, &m_height, &m_bitDepth, SOIL_LOAD_RGBA);

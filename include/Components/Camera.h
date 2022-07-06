@@ -79,19 +79,20 @@ public:
 			break;
 		}
 	}
-	void MouseInput(float rotX, float rotY)
+	void MouseInput(float rotX, float rotY, Window* window)
 	{
 		// Calculates upcoming vertical change in the Orientation
 		glm::vec3 newOrientation = glm::rotate(Orientation, glm::radians(-rotX), glm::normalize(glm::cross(Orientation, Up)));
 
 		// Decides whether or not the next vertical Orientation is legal or not
-		if (abs(glm::angle(newOrientation, Up) - glm::radians(90.0f)) <= glm::radians(85.0f))
+		if (!((glm::angle(newOrientation, Up) <= glm::radians(5.0f))) || ((glm::angle(newOrientation, -Up) <= glm::radians(5.0f))))
 		{
 			Orientation = newOrientation;
 		}
 
 		// Rotates the Orientation left and right
 		Orientation = glm::rotate(Orientation, glm::radians(-rotY), Up);
+		glfwSetCursorPos(window->getWindowLocation(), (window->getWidth()/2), (window->getHeight()/2));
 	}
 
 private:

@@ -980,6 +980,9 @@
     <ClInclude Include="include\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Components\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="lib\GLM\detail\func_common.inl">
@@ -1390,9 +1393,11 @@
     <None Include="lib\GLM\gtx\wrap.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="imgui.ini" />
     <None Include="res\Shaders\fragment.vs" />
     <None Include="res\Shaders\vertex.vs" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="imgui.ini" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\Fonts\Cousine-Regular.ttf" />
@@ -1401,5 +1406,10 @@
     <Font Include="res\Fonts\ProggyClean.ttf" />
     <Font Include="res\Fonts\Karla-Regular.ttf" />
     <Font Include="res\Fonts\DroidSans.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Textures\BrickRound.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

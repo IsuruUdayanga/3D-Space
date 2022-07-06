@@ -15,7 +15,6 @@ public:
 		this->height = height;
 		Position = position;
 	}
-
 	virtual ~Camera() = default;
 
 	bool Init() override
@@ -43,7 +42,6 @@ public:
 		projection = glm::perspective(glm::radians(FOVdeg), (float)width / height, nearPlane, farPlane);
 		m_projection = projection * view;
 	}
-
 	glm::mat4 GetProjection()const
 	{
 		return m_projection;
@@ -81,7 +79,6 @@ public:
 			break;
 		}
 	}
-
 	void MouseInput(float rotX, float rotY)
 	{
 		// Calculates upcoming vertical change in the Orientation
@@ -109,6 +106,5 @@ private:
 
 	// Adjust the speed of the camera
 	float speed = 0.1f;
-
 	glm::mat4 m_projection;
 };

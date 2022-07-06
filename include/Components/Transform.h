@@ -20,7 +20,7 @@ public:
 	}
 
 	void Draw() override {
-		ImGui::Begin("Model Properties");
+		ImGui::Begin("Model Properties", (bool*)1, 1);
 
 		ImGui::Text("Position");
 		ImGui::DragFloat("X", &m_position.x, 0.01f);
@@ -39,6 +39,9 @@ public:
 
 		ImGui::Text("Scale");
 		ImGui::DragFloat("All axise", &m_scaler, 0.01f);
+		ImGui::Separator();
+		ImGui::Text("Hits");
+		ImGui::Text("	Right-Click Enable or Disable the Camera.");
 		ImGui::End();
 	}
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -74,17 +74,21 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <SourcePath>$(SolutionDir)lib\SOIL\src\original;$(SolutonDir)lib\SOIL\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <SourcePath>$(SolutionDir)lib\SOIL\src\original;$(SolutonDir)lib\SOIL\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <SourcePath>$(SolutionDir)lib\SOIL\src\original;$(SolutonDir)lib\SOIL\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <SourcePath>$(SolutionDir)lib\SOIL\src\original;$(SolutonDir)lib\SOIL\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -92,13 +96,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;$(SolutionDir)include\Components;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\SOIL\include\SOIL;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtx;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include\Components;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW\lib;$(SolutionDir)lib\GLEW\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Isuru Senanayaka\Documents\My Documents\Visual Studio Projects\3D Space\lib\SOIL\lib\x86;$(SolutionDir)lib\GLFW\lib;$(SolutionDir)lib\GLEW\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>soil2.lib;glew32.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,13 +113,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\SOIL\include\SOIL;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtx;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include\Components;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Isuru Senanayaka\Documents\My Documents\Visual Studio Projects\3D Space\lib\SOIL\lib\x86;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>soil2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,7 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;$(SolutionDir)include\Components;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\SOIL\include\SOIL;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtx;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include\Components;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\GLM\gtx;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\SOIL\include\SOIL;$(SolutionDir)lib\imGui\backends;$(SolutionDir)lib\imGui;$(SolutionDir)lib\GLM\gtx;$(SolutionDir)lib\GLM\gtc;$(SolutionDir)lib\GLM;$(SolutionDir)lib\GLFW\include;$(SolutionDir)lib\GLEW\include;$(SolutionDir)include\Components;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,6 +176,7 @@
     <ClInclude Include="include\Components\Component.h" />
     <ClInclude Include="include\Components\Mesh.h" />
     <ClInclude Include="include\Components\Shader.h" />
+    <ClInclude Include="include\Components\Texture.h" />
     <ClInclude Include="include\Components\Transform.h" />
     <ClInclude Include="include\ECS.h" />
     <ClInclude Include="include\Input.h" />
@@ -474,6 +481,8 @@
     <ClInclude Include="lib\imGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include="imgui.ini" />
     <None Include="lib\GLM\detail\func_common.inl" />
     <None Include="lib\GLM\detail\func_common_simd.inl" />
@@ -621,6 +630,9 @@
     <Font Include="res\Fonts\ProggyClean.ttf" />
     <Font Include="res\Fonts\ProggyTiny.ttf" />
     <Font Include="res\Fonts\Roboto-Medium.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Textures\BrickRound.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

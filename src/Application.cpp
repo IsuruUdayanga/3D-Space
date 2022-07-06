@@ -113,26 +113,25 @@ void Application::Run()
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     unsigned int indices[] = {
-        0, 1, 2,
-        1, 2, 3,
-        0, 1, 4,
-        0, 2, 4,
-        1, 3, 4,
-        2, 3, 4
+         0, 3, 1,
+         1, 3, 2,
+         2, 3, 0,
+         0, 1, 2
     };
 
-    float vertices[] = {
-         1.0f, 0.0f, -1.0f,
-        -1.0f, 0.0f, -1.0f,
-         1.0f, 0.0f,  1.0f,
-        -1.0f, 0.0f,  1.0f,
-         0.0f, 1.0f,  0.0f
+    GLfloat vertices[] = {
+           -1.0f, -1.0f, 0.0f,		0.0f, 0.0f,
+            0.0f, -1.0f, 1.0f,		0.5f, 0.0f,
+            1.0f, -1.0f, 0.0f,		1.0f, 0.0f,
+            0.0f,  1.0f, 0.0f,		0.5f, 1.0f
     };
+
 
     std::string vertexShader = "res\\Shaders\\vertex.vs";
     std::string fragmentShader = "res\\Shaders\\fragment.vs";
+    std::string texture = "res\\Textures\\BrickRound.jpg";
 
-    m_model = new Model(vertices, indices, (unsigned int)(sizeof(vertices) / sizeof(float)), (unsigned int)(sizeof(indices) / sizeof(unsigned int)), vertexShader.c_str(), fragmentShader.c_str(), m_window->getWidth(), m_window->getHeight());
+    m_model = new Model(vertices, indices, (unsigned int)(sizeof(vertices)/sizeof(float)), (unsigned int)(sizeof(indices) / sizeof(unsigned int)), vertexShader.c_str(), fragmentShader.c_str(), m_window->getWidth(), m_window->getHeight(), texture.c_str());
 
     while (!m_window->isRunning()) {
 

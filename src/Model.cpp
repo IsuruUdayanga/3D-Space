@@ -1,12 +1,15 @@
 #include "Model.h"
+#define STB_IMAGE_IMPLEMENTATION
 
-Model::Model(float* vertices, unsigned int* indices, unsigned int verticesCount, unsigned int indicesCount, const char* vetx_shdr, const char* frgm_shdr, int width, int height)
+Model::Model(float* vertices, unsigned int* indices, unsigned int verticesCount, unsigned int indicesCount, const char* vetx_shdr, const char* frgm_shdr, int width, int height,const char* texture)
 {
 	m_properties = new Entity();
 	m_properties->AddComponent<Mesh>(vertices, indices, verticesCount, indicesCount, width, height);
 	m_properties->AddComponent<Transform>();
 	m_properties->AddComponent<Shader>(vetx_shdr, frgm_shdr);
 	m_properties->AddComponent<Camera>(width, height, glm::vec3(0.0f, 0.1f, 2.5f));
+	m_properties->AddComponent<Texture>(texture);
+	m_properties->GetComponent<Texture>().LoadTexture();
 
 	Input::setControlEntity(m_properties);
 }
@@ -41,9 +44,10 @@ void Model::Render() {
 	glUniformMatrix4fv(m_properties->GetComponent<Shader>().GetUniformModel(), 1, GL_FALSE, glm::value_ptr(model));
 	glUniformMatrix4fv(m_properties->GetComponent<Shader>().GetUniformProjection(), 1, GL_FALSE, glm::value_ptr(m_properties->GetComponent<Camera>().GetProjection()));
 	m_properties->GetComponent<Transform>().Draw();
+	m_properties->GetComponent<Texture>().UseTexture();
 	m_properties->GetComponent<Mesh>().Draw();
 
-	ImGui::Begin("Scene");
+	ImGui::Begin("Scene View", (bool*)1, 1);
 	ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
 	static glm::vec2 Size = { viewportPanelSize.x, viewportPanelSize.y };
 

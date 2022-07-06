@@ -13,7 +13,6 @@ public:
 
 		CompileShaderProgram(this->vertexShader.c_str(), this->fragmentShader.c_str());
 	}
-
 	virtual ~Shader()
 	{
 		if (shaderID != NULL)
@@ -28,12 +27,10 @@ public:
 	{
 		return true;
 	}
-
 	void Update() override
 	{
 
 	}
-
 	void Draw() override
 	{
 
@@ -43,12 +40,10 @@ public:
 	{
 		glUseProgram(shaderID);
 	}
-
 	std::size_t GetUniformModel()
 	{
 		return uniformModel;
 	}
-
 	std::size_t GetUniformProjection()
 	{
 		return uniformProjection;
@@ -80,7 +75,6 @@ private:
 
 		return fileContent;
 	}
-
 	void CreateShaderProgram(std::size_t shaderProgram, const char* shader, std::size_t shaderType)
 	{
 		unsigned int shader_ID = glCreateShader(shaderType);
@@ -102,7 +96,6 @@ private:
 
 		glAttachShader(shaderProgram, shader_ID);
 	}
-
 	void CompileShaderProgram(const char* vertexShader, const char* fragmentShader)
 	{
 		shaderID = glCreateProgram();

@@ -7,6 +7,7 @@
 #pragma comment(lib, "legacy_stdio_definitions")
 #endif
 
+
 int main(int, char**)
 {
     Application App("3D Space");

@@ -3,7 +3,7 @@
 Window* Input::m_window = nullptr;
 float Input::m_xChange = 0.0f;
 float Input::m_yChange = 0.0f;
-float Input::m_sensitivity = 2.0f;
+float Input::m_sensitivity = 0.5f;
 Entity* Input::m_entity = nullptr;
 bool Input::m_disableMouse = false;
 

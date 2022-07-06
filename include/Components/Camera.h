@@ -106,6 +106,6 @@ private:
 	int height;
 
 	// Adjust the speed of the camera
-	float speed = 0.1f;
+	float speed = 0.05f;
 	glm::mat4 m_projection;
 };

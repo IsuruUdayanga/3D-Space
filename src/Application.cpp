@@ -147,6 +147,9 @@ void Application::Run()
 
     while (!m_window->isRunning()) {
 
+        double now = glfwGetTime();
+        double deltaTime = now - lastUpdateTime;
+
         m_window->pollEvents();
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -177,6 +180,12 @@ void Application::Run()
         }
 
         Input::DisableMouse();
-        m_window->swapBuffers();
+        if ((now - lastFrameTime) >= FPS_LIMIT)
+        {
+            m_window->swapBuffers();
+            lastFrameTime = now;
+        }
+
+        lastUpdateTime = now;
     }
 }

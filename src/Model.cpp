@@ -1,5 +1,4 @@
 #include "Model.h"
-#define STB_IMAGE_IMPLEMENTATION
 
 Model::Model(float* vertices, unsigned int* indices, unsigned int verticesCount, unsigned int indicesCount, const char* vetx_shdr, const char* frgm_shdr, int width, int height,const char* texture)
 {
@@ -9,6 +8,7 @@ Model::Model(float* vertices, unsigned int* indices, unsigned int verticesCount,
 	m_properties->AddComponent<Shader>(vetx_shdr, frgm_shdr);
 	m_properties->AddComponent<Camera>(width, height, glm::vec3(0.0f, 0.1f, 2.5f));
 	m_properties->AddComponent<Texture>(texture);
+	m_properties->AddComponent<Light>(1.0f, 0.5f, 0.2f, 0.3f);
 
 	Input::setControlEntity(m_properties);
 }
@@ -35,6 +35,7 @@ void Model::Render() {
 
 	glm::mat4 model{ 1.0f };
 	m_properties->GetComponent<Shader>().UseShader();
+	m_properties->GetComponent<Light>().UseLight(m_properties->GetComponent<Shader>().GetUniformAmbientIntensityLocation(), m_properties->GetComponent<Shader>().GetUniformAmbientColorLocation());
 
 	model = glm::translate(model, m_properties->GetComponent<Transform>().GetPosition());
 	model = glm::rotate(model, glm::radians(m_properties->GetComponent<Transform>().GetAngles()), m_properties->GetComponent<Transform>().GetAxis());
@@ -46,9 +47,9 @@ void Model::Render() {
 	m_properties->GetComponent<Texture>().UseTexture();
 	m_properties->GetComponent<Mesh>().Draw();
 
-	ImGui::Begin("Scene View", (bool*)1, 1);
+	ImGui::Begin("Scene View");
 	ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
-	static glm::vec2 Size = { viewportPanelSize.x, viewportPanelSize.y };
+	static glm::vec2 Size = { viewportPanelSize.x, viewportPanelSize.y};
 
 	// add rendered texture to ImGUI scene window
 	uint64_t textureID = m_properties->GetComponent<Mesh>().GetTextureID();

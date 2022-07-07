@@ -48,6 +48,14 @@ public:
 	{
 		return uniformProjection;
 	}
+	std::size_t GetUniformAmbientIntensityLocation()
+	{
+		return uniformAmbientIntensity;
+	}
+	std::size_t GetUniformAmbientColorLocation()
+	{
+		return uniformAmbientColor;
+	}
 
 
 private:
@@ -128,9 +136,11 @@ private:
 
 		uniformModel = glGetUniformLocation(shaderID, "model");
 		uniformProjection = glGetUniformLocation(shaderID, "camMatrix");
+		uniformAmbientIntensity = glGetUniformLocation(shaderID, "ambientIntensity");
+		uniformAmbientColor = glGetUniformLocation(shaderID, "ambientColor");
 	}
 
 private:
-	std::size_t shaderID{ NULL }, uniformModel{ NULL }, uniformProjection{ NULL };
+	std::size_t shaderID{ NULL }, uniformModel{ NULL }, uniformProjection{ NULL }, uniformAmbientIntensity{ NULL }, uniformAmbientColor{ NULL };
 	std::string vertexShader, fragmentShader;
 };

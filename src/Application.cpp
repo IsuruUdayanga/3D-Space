@@ -60,7 +60,7 @@ Application::Application(const char* title)
     ImGui_ImplGlfw_InitForOpenGL(m_window->getWindowLocation(), true);
     ImGui_ImplOpenGL3_Init("#version 410");
 
-    io.Fonts->AddFontFromFileTTF("res\\Fonts\\Roboto-Medium.ttf", 16.0f);
+    io.Fonts->AddFontFromFileTTF("res\\Fonts\\Cousine-Regular.ttf", 16.0f);
 }
 
 Application::~Application()
@@ -150,6 +150,7 @@ void Application::Run()
         double now = glfwGetTime();
         double deltaTime = now - lastUpdateTime;
 
+        Input::DisableMouse();
         m_window->pollEvents();
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -179,7 +180,6 @@ void Application::Run()
             glfwMakeContextCurrent(backup_current_context);
         }
 
-        Input::DisableMouse();
         if ((now - lastFrameTime) >= FPS_LIMIT)
         {
             m_window->swapBuffers();

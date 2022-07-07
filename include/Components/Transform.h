@@ -20,7 +20,7 @@ public:
 	}
 
 	void Draw() override {
-		ImGui::Begin("Model Properties", (bool*)1, 1);
+		ImGui::Begin("Model Properties");
 
 		ImGui::Text("Position");
 		ImGui::DragFloat("X", &m_position.x, 0.01f);
